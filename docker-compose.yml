@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  hello:
+    image: dockercloud/hello-world
+    container_name: "helloworld-varnish"
+  varnish:
+    build: .
+    container_name: "varnish"
+    ports:
+      - "8004:80"
+    volumes:
+      - ./default.vcl:/etc/varnish/default.vcl
+      - ./conf:/etc/varnish/conf
