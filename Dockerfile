@@ -2,7 +2,7 @@ FROM debian:jessie-slim
 MAINTAINER Jean-Avit Promis "docker@katagena.com"
 
 RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get -yq install varnish cron && \
+	DEBIAN_FRONTEND=noninteractive apt-get -yq install varnish=4.* cron && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD start.sh /start.sh
