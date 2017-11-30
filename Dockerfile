@@ -1,8 +1,12 @@
-FROM debian:jessie-slim
-MAINTAINER Jean-Avit Promis "docker@katagena.com"
+ARG  BASE_IMAGE=jessie-slim
+FROM debian:${BASE_IMAGE}
+LABEL maintainer Jean-Avit Promis "docker@katagena.com"
+LABEL org.label-schema.vcs-url="https://github.com/nouchka/docker-varnish"
+
+ARG VARNISH_VERSION=4
 
 RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get -yq install varnish=4.* cron && \
+	DEBIAN_FRONTEND=noninteractive apt-get -yq install varnish=${VARNISH_VERSION}.* cron && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD start.sh /start.sh
