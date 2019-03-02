@@ -12,6 +12,8 @@ if [ "$VARNISH_VERSION" = "4" ]; then
 	BASE_IMAGE=jessie-slim
 elif [ "$VARNISH_VERSION" = "5" ]; then
 	BASE_IMAGE=stretch-slim
+elif [ "$VARNISH_VERSION" = "6" ]; then
+	BASE_IMAGE=buster-slim
 else
 	echo "Need to specify base image"
 	exit 1
