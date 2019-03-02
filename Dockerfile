@@ -6,10 +6,10 @@ LABEL org.label-schema.vcs-url="https://github.com/nouchka/docker-varnish"
 ARG VARNISH_VERSION=4
 
 RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get -yq install varnish=${VARNISH_VERSION}.* cron && \
+	DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends varnish=${VARNISH_VERSION}.* cron=* && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD start.sh /start.sh
+COPY start.sh /start.sh
 
 ENV VCL_CONFIG      /etc/varnish/default.vcl
 ENV CACHE_SIZE      64m
