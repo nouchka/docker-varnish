@@ -4,6 +4,7 @@ LABEL maintainer Jean-Avit Promis "docker@katagena.com"
 LABEL org.label-schema.vcs-url="https://github.com/nouchka/docker-varnish"
 
 ARG VARNISH_VERSION=4
+## MINOR_TAG=4.0.2-1+deb8u1 5.0.0-7+deb9u2 6.1.1-1+b1
 
 RUN apt-get update && \
 	DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends varnish=${VARNISH_VERSION}.* cron=* && \
