@@ -1,3 +1,0 @@
-include:
-  - project: 'katagena/templates'
-    file: 'ci/docker.yml'
